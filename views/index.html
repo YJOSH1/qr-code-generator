@@ -8,15 +8,9 @@
     <title>QR Code Generator</title>
 </head>
 <body>
-    <form action="/" method="post">
+    <form action="/generated" method="post">
         <input type="url" id="url" name="url" placeholder="Enter URL"><br>
         <button type="submit">Generate QR Code</button>
     </form>
-    <% if (qrGen === true) { %>
-        <div class="generated-qr">
-            <img src="<%=qrCode%>" alt="">
-            <button><a href="<%=qrCode%>" download="QRCode">Save Image</a></button>
-        </div>
-    <% } %>
 </body>
 </html>

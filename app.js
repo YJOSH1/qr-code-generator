@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     res.render('index.html', {qrGen: false, qrCode: undefined});
 });
 
-app.post('/', function (req, res) {
+app.post('/generated', function (req, res) {
     let url = req.body.url;
     let qrGen = false;
     
@@ -26,7 +26,7 @@ app.post('/', function (req, res) {
         if (err) {
             throw err;
         }
-        qrGen = true;
-        res.render('index.html', {qrGen: qrGen, qrCode: url});
+        qrGen = false;
+        res.render('generated.html', {qrGen: qrGen, qrCode: url});
     });
 });

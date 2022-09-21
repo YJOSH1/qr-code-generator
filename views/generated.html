@@ -4,19 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../public/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/6470e97439.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ['Ubuntu', 'sans-serif']
+              },
+              colors: {
+                'blue':'#2a658f',
+              }
+            }
+          }
+        }
+    </script>
+    <script src="../public/js/script.js" defer></script>
     <title>QR Code Generator</title>
 </head>
 <body>
-    <% if (qrGen === true) { %>
-        <div class="generated-qr">
-            <img src="<%=qrCode%>" alt="">
-            <button><a href="<%=qrCode%>" download="QRCode">Save Image</a></button>
+    <header class="p-4 mb-10 drop-shadow shadow">
+        <div class="max-w-5xl m-auto drop">
+            <a href="/">
+                <h2 class="text-xl font-bold text-orange-600">
+                    <span style="padding-right: 15px"><i class="fa-solid fa-qrcode fa-lg"></i></span>QR Code Generator
+                </h2>
+            </a>
         </div>
-    <% } else { %>
-        <div>
-            <p>404</p>
-        </div>
-    <% } %>
+    </header>
+    <main>
+        <% if (qrGen === true) { %>
+            <div class="generated-qr">
+                <img src="<%=qrCode%>" alt="">
+                <button><a href="<%=qrCode%>" download="QRCode">Save Image</a></button>
+            </div>
+        <% } else { %>
+            <div>
+                <p>404</p>
+            </div>
+        <% } %>
+    </main> 
+    <footer>
+        <p class="text-base text-center hover:text-orange-600"><a href="https://yashjoshi.com.au/" target="_blank">A Project By Yash Joshi | Copyright © 2022</a></p>
+    </footer>
 </body>
 </html>

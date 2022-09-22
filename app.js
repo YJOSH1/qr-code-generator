@@ -1,3 +1,4 @@
+const { renderFile } = require('ejs');
 let express = require('express');
 let app = express();
 app.listen(process.env.PORT || 3000);
@@ -20,13 +21,20 @@ app.get('/', function (req, res) {
 
 app.post('/generated', function (req, res) {
     let url = req.body.url;
+    let size = req.body.size;
     let qrGen = false;
+
+    let opts = {
+        type: 'image/png',
+        width: size
+    }
     
-    qrcode.toDataURL(url, function (err, url) {
+    qrcode.toDataURL(url, opts, function (err, url) {
         if (err) {
             throw err;
+            res.redirect('/error');
         }
-        qrGen = false;
+        qrGen = true;
         res.render('generated.html', {qrGen: qrGen, qrCode: url});
     });
 });

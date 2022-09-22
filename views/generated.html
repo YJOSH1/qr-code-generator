@@ -34,19 +34,24 @@
         </div>
     </header>
     <main>
-        <% if (qrGen === true) { %>
-            <div class="generated-qr">
-                <img src="<%=qrCode%>" alt="">
-                <button><a href="<%=qrCode%>" download="QRCode">Save Image</a></button>
-            </div>
-        <% } else { %>
-            <div>
-                <p>404</p>
-            </div>
-        <% } %>
+        <div class="align-center justify-center m-auto md:max-w-4xl pt-20 p-10 pb-20 mb-10">
+            <% if (qrGen === true) { %>
+                <div class="w-full self-center m-auto">
+                    <h1 class="text-3xl font-bold mb-5 md:text-4xl text-center">Generated Successfully!</h1>
+                    <img src="<%=qrCode%>" alt="qr-code" class="m-auto mb-4">
+                    <a href="<%=qrCode%>" download="QRCode"><button class="drop-shadow bg-orange-600 rounded p-2 w-full text-white hover:bg-orange-500 mb-2">Save Image <span style="padding-left: 6px"><i class="fa-solid fa-file-arrow-down"></i></span></button></a>
+                    <a href="/"><button class="drop-shadow bg-white rounded p-2 w-full text-orange-600 border-orange-600 border-2 hover:text-orange-500 hover:border-orange-500">Generate New QR Code <span style="padding-left: 6px"><i class="fa-solid fa-qrcode fa-lg"></i></span></button></a>
+
+                </div>
+            <% } else { %>
+                <div>
+                    <p>404</p>
+                </div>
+            <% } %>
+        </div>
     </main> 
     <footer>
-        <p class="text-base text-center hover:text-orange-600"><a href="https://yashjoshi.com.au/" target="_blank">A Project By Yash Joshi | Copyright © 2022</a></p>
+        <p class="text-base text-center hover:text-orange-600 mb-4"><a href="https://yashjoshi.com.au/" target="_blank">A Project By Yash Joshi | Copyright © 2022</a></p>
     </footer>
 </body>
 </html>

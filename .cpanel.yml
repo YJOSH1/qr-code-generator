@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/joshiandco/repos/yashjoshi/qr-code-generator
+    - /bin/cp -R * $DEPLOYPATH
